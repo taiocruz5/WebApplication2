@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using WebApplication2.Data;
 using WebApplication2.Models;
 using WebApplication2.Services;
+using WebApplication2.Models.Identity;
 
 namespace WebApplication2
 {
@@ -41,7 +42,8 @@ namespace WebApplication2
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=aspnet-WebApplication2-37044acb-ca0c-425b-ada6-d909b1d03802"));
+            services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {

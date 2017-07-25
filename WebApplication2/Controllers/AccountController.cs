@@ -12,14 +12,15 @@ using Microsoft.Extensions.Options;
 using WebApplication2.Models;
 using WebApplication2.Models.AccountViewModels;
 using WebApplication2.Services;
+using WebApplication2.Models.Identity;
 
 namespace WebApplication2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private  UserManager<ApplicationUser> _userManager;
+        private  SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
@@ -112,8 +113,8 @@ namespace WebApplication2.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
+                ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email,Profile=new Models.Profile() };
+                IdentityResult result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
@@ -224,7 +225,7 @@ namespace WebApplication2.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new Models.Identity.ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

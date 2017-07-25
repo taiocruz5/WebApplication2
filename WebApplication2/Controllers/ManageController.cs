@@ -10,22 +10,23 @@ using Microsoft.Extensions.Options;
 using WebApplication2.Models;
 using WebApplication2.Models.ManageViewModels;
 using WebApplication2.Services;
+using WebApplication2.Models.Identity;
 
 namespace WebApplication2.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<Models.Identity.ApplicationUser> _userManager;
+        private readonly SignInManager<Models.Identity.ApplicationUser> _signInManager;
         private readonly string _externalCookieScheme;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
         public ManageController(
-          UserManager<ApplicationUser> userManager,
-          SignInManager<ApplicationUser> signInManager,
+          UserManager<Models.Identity.ApplicationUser> userManager,
+          SignInManager<Models.Identity.ApplicationUser> signInManager,
           IOptions<IdentityCookieOptions> identityCookieOptions,
           IEmailSender emailSender,
           ISmsSender smsSender,

@@ -16,6 +16,8 @@ namespace Events.Controllers
             ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
             return View("MyView");
         }
+
+
         [HttpGet]
         public ViewResult RSVPForm(){
             return View();

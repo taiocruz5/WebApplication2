@@ -1,4 +1,9 @@
-﻿@{ 
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication2.Models.Identity
+@inject SignInManager<ApplicationUser>SignInManager
+@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+@{ 
     Layout = null;
 
 }
@@ -11,9 +16,23 @@
 </head>
 <body>
     <div class="text-center">
-        <h3>Badminton.</h3>
-        <h4>Are you ready to join the league of legends?</h4>
-        <a class="btn btn-primary" asp-action="RsvpForm">Sign Up Now!</a>
+        <h3>OpenPlay Badminton Qualifiers</h3>
+        <h4>Are you ready to join the League of Legends?</h4>
+        <h4><b>Time: </b><u>9.45am</u></h4>
+        <h4><b>Venue: </b><u>OpenPlay Headquarters,
+            1 OpenPlay Road,
+            Singapore 512034</u></h4>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a class="btn btn-primary" asp-action="RsvpForm">Sign Up Now!</a>
+        }
+        else
+        {
+            <a class="btn btn-primary" href="@Url.Action("Login","Account")">Login Now!</a>
+        }
+
+        <a class="btn btn-primary" href="@Url.Action("Index","Home")">Home Page</a>
     </div>
 </body>
 </html>

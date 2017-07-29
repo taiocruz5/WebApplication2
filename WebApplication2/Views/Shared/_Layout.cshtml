@@ -36,25 +36,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class=" active"><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li><a href="#Listings">Listings</a></li>
-                    <li><a href="#Search">Search</a></li>
-                    <li><a href="#FAQ">FAQ</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                    <li><a href="#About">About</a></li>
-
-                    <li class="active"><a href="@Url.Action("Edit","Profile")">Profile Page Shortcut (Debugging)</a></li>
+                    <li><a href="Listings">Listings</a></li>
+                    <li class=" active"><a href="@Url.Action("Search","Profile")">Search</a></li>
+                    <li><a href="About">About</a></li>
 
 
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <li><a href="@Url.Action("Index","Profile")">My Profile (Not Working)</a></li>
+                        <li><a href="@Url.Action("Profile","Home")">My Profile</a></li>
                         <li><a href="@Url.Action("Edit","Profile")">Edit Profile</a></li>
-
-
-                    }
-                    else
-                    {
-                        <li class="active"><a href="@Url.Action("Login","Account")"></a></li>
                     }
 
                 </ul>

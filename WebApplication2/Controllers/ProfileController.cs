@@ -25,9 +25,11 @@ namespace WebApplication2.Controllers
         {
             _context = context;
             _userManager = userManager;
+            _environment = environment;
         }
 
         public int OR { get; private set; }
+       
 
         // GET: Profile/Details/5
         public async Task<IActionResult> Details(int? id)

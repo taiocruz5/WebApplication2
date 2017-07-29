@@ -20,6 +20,7 @@ namespace WebApplication2.Controllers
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _environment;
+        private object SqlMethods;
 
         public ProfileController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
         {
@@ -48,6 +49,41 @@ namespace WebApplication2.Controllers
 
             return View(profile);
         }
+
+        //[HttpGet]
+        //public IActionResult Search()
+        //{
+        //    ProfileSearchViewModel vm = new ProfileSearchViewModel();
+        //    vm.DisplayName = "Hazim";
+
+        //    return View(vm);
+        //}
+
+        //[HttpGet]
+        //public IActionResult Search(ProfileSearchViewModel vm)
+        //{
+        //    List<ProfileSearchResultViewModel> result = new List<ProfileSearchResultViewModel>();
+        //    if (ModelState.IsValid)
+        //    {
+        //        result = (from p in _context.Profiles
+        //                  where p.DisplayName.Contains(vm.DisplayName.ToString())
+        //                  && p.Description.Contains(vm.Description.ToString())
+
+        //                  select new ProfileSearchResultViewModel
+        //                  {
+        //                      DisplayName = View((object)p.DisplayName),
+        //                      Description = RedirectToAction(p.Description),
+        //                      ProfilePicture = $"{p.Id}/{p.ProfilePicture}",
+        //                      Gender = p.Gender
+        //                  }
+        //                  ).ToList();
+                          
+                
+
+
+        //    }
+        //    return View("Result", result)
+        //}
 
         // GET: Profile/Edit/5
 

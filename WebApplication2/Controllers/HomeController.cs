@@ -28,9 +28,15 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
         public ActionResult MyView()
         { //pass action and controller name to be directed
             return this.RedirectToAction("Index", "PartyController");
+        }
+
+        public IActionResult Profile()
+        {
+            return View();
         }
     }
 

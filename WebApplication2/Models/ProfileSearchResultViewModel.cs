@@ -19,9 +19,6 @@ namespace WebApplication2.Models
         [Display(Name = "Description")]
         public Profile Description { get; set; }
 
-        [Display(Name = "Age")]
-        public DateTime Age { get; set; }
-
         [Display(Name = "Gender")]
         public GenderType Gender { get; set; }
     }

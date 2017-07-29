@@ -72,15 +72,11 @@ namespace WebApplication2.Controllers
                 if (ProfilePictureFile != null)
                 {
                     string uploadPath = Path.Combine(_environment.WebRootPath, "uploads");
-                    Directory.CreateDirectory(Path.Combine(uploadPath, currentuser.Id));
+                    Directory.CreateDirectory(Path.Combine(uploadPath, currentuser.ProfileId.ToString()));
 
-                    string filename = ProfilePictureFile.FileName;
-                    if (filename.Contains('\\'))
-                    {
-                        filename = filename.Split('\\').Last();
-                    }
+                    string filename = Path.GetFileName(ProfilePictureFile.FileName);
 
-                    using (FileStream fs = new FileStream(Path.Combine(uploadPath, currentuser.Id, filename), FileMode.Create))
+                    using (FileStream fs = new FileStream(Path.Combine(uploadPath, currentuser.ProfileId.ToString(), filename), FileMode.Create))
                     {
                         await ProfilePictureFile.CopyToAsync(fs);
                     }

@@ -17,6 +17,8 @@ namespace WebApplication2.Data
 
         public DbSet<Profile> Profiles { get; set; }
 
+        public DbSet<WebApplication2.Models.ProfileSearchResultViewModel> ProfileSearchResultViewModel { get; set; }
+
         
         
     }

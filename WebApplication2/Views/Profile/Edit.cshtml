@@ -36,9 +36,8 @@
         <div class="form-group">
             <label asp-for="ProfilePicture" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <img src="~/uploads/@Model.User.ProfileId/@Model.ProfilePicture" />
-                <input type="hidden" asp-for="ProfilePicture" class="form-control" />
-                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                <img src="~/uploads/@Model.Id/@Model.ProfilePicture" class="profileFormat"/>
+                <input type="hidden" asp-for="ProfilePicture" />
             </div>
         </div>
         <div class="form-group">
@@ -51,7 +50,7 @@
         <div class="form-group">
             <label asp-for="Description" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <textarea asp-for="Description" class="form-control" /></textarea>
+                <textarea asp-for="Description" class="form-control" ></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>

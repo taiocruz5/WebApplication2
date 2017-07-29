@@ -41,6 +41,14 @@ textarea {
     width: 100%;
 }
 
+.profileFormat {
+    display:block;
+    max-width:200px;
+    max-height:200px;
+    width:auto;
+    height:auto;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

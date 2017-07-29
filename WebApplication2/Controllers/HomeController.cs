@@ -34,10 +34,7 @@ namespace WebApplication2.Controllers
             return this.RedirectToAction("Index", "PartyController");
         }
 
-        public IActionResult Profile()
-        {
-            return View();
-        }
+        
     }
 
 }

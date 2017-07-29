@@ -20,7 +20,6 @@ namespace WebApplication2.Controllers
         private readonly ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _environment;
-        private object SqlMethods;
 
         public ProfileController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
         {

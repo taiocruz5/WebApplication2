@@ -1,0 +1,28 @@
+@model IEnumerable<WebApplication2.Models.Profile>
+
+    @{
+    ViewData["Title"] = "My Profile";
+    }
+
+    <h2>My Profile</h2>
+
+    @foreach (var item in Model)
+    {
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Html.DisplayFor(modelItem => item.DisplayName) - @Html.DisplayFor(modelItem => item.Gender)</h3>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                @Html.DisplayFor(modelItem => item.BirthDate)
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div class="col-md-4">
+                <img src="~/uploads/@item.Id/@item.ProfilePicture" class="profileFormat" />
+            </div>
+        </div>
+    </div>
+    }

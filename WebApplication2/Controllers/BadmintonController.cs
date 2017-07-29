@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using PartyInvites.Models;
 
 
-namespace PartyInvites.Controllers
+namespace Events.Controllers
 {
-    public class PartyController : Controller
+    public class BadmintonController : Controller
     {
         public ViewResult Index()
         {

@@ -8,7 +8,7 @@ using PartyInvites.Models;
 
 namespace PartyInvites.Controllers
 {
-    public class PartyController : Controller
+    public class VolleyballController : Controller
     {
         public ViewResult Index()
         {
@@ -21,11 +21,11 @@ namespace PartyInvites.Controllers
             return View();
         }
         [HttpPost]
-        public ViewResult RSVPForm(GuestResponse guestresponse) {
+        public ViewResult RSVPForm(VolleyBallResponse volleyballresponse) {
             if (ModelState.IsValid)
             {
-                BadmintonRepository.AddResponse(guestresponse);
-                return View("Thanks", guestresponse);
+                VolleyballRepository.AddResponse(volleyballresponse);
+                return View("Thanks", volleyballresponse);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace PartyInvites.Controllers
         }
         public ViewResult ListResponses()
         {
-            return View(BadmintonRepository.Responses.Where(r => r.WillAttend == true));
+            return View(VolleyballRepository.Responses.Where(r => r.WillAttend == true));
         }
 
         public IActionResult About()

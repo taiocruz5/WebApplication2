@@ -1,4 +1,4 @@
-﻿@model PartyInvites.Models.GuestResponse
+﻿@model PartyInvites.Models.VolleyBallResponse
 @{ 
     Layout = null;
  }
@@ -14,10 +14,10 @@
         <h1>Thank you @Model.Name!</h1>
         @if (Model.WillAttend==true)
         {
-            @:Its great you're coming,the drinks are already in the fridge!
+            @:Its great you're coming!
             }else
         {
-            @:Sorry to know you cant make it 
+            @:You are always welcome back if you have changed your mind! You may be interested to know..
 
         }
     </p>

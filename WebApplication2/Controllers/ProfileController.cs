@@ -142,7 +142,7 @@ namespace WebApplication2.Controllers
                 //throw;
                 //}
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Edit");
         }
 
     }

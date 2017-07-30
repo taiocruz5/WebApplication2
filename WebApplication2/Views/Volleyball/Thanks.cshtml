@@ -14,11 +14,10 @@
         <h1>Thank you @Model.Name!</h1>
         @if (Model.WillAttend==true)
         {
-            @:Its great you're coming!
+            @:Thanks for your interest! Hope to see you there!
             }else
         {
-            @:You are always welcome back if you have changed your mind! You may be interested to know..
-
+            @:You can always sign up from the main menu if you're interested!
         }
     </p>
     <a class="btn btn-primary" href="@Url.Action("ListResponses","Volleyball")">Who's Coming</a>

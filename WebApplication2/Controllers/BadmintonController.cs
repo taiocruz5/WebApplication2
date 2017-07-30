@@ -12,17 +12,6 @@ namespace Events.Controllers
 {
     public class BadmintonController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private UserManager<ApplicationUser> _userManager;
-
-        public BadmintonController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-        {
-            _context = context;
-            _userManager = userManager;
-        }
-
-        public int OR { get; private set; }
-
         public ViewResult Index()
         {
             return View("MyView");
@@ -37,11 +26,11 @@ namespace Events.Controllers
 
 
         [HttpPost]
-        public ViewResult RSVPForm(PartyInvites.Models.GuestResponse guestresponse) {
+        public ViewResult RSVPForm(PartyInvites.Models.BadmintonResponse badmintonresponse) {
             if (ModelState.IsValid)
             {
-                PartyInvites.Models.BadmintonRepository.AddResponse(guestresponse);
-                return View("Thanks", guestresponse);
+                PartyInvites.Models.BadmintonRepository.AddResponse(badmintonresponse);
+                return View("Thanks", badmintonresponse);
             }
             else
             {

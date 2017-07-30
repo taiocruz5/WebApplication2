@@ -1,52 +1,43 @@
-﻿@model PartyInvites.Models.GuestResponse
+﻿@model PartyInvites.Models.BadmintonResponse
 @{ Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SignUpForm</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Working with Visual Studio</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
-<body>
+<body class="panel-body">
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>Badminton</h4></div>
+        <div class="panel-heading text-center"><h4>OpenPlay Badminton Qualifiers</h4></div>
         <div class="panel-body">
-            <form class="p-a-1" asp-action="RSVPForm" method="post">
+            <form asp-action="RSVPForm" method="post">
                 <div asp-validation-summary="All"></div>
                 <div class="form-group">
-                    <label asp-for="Name">Your name:</label>
-                    <input class="form-group" asp-for="Name" />
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="ContactNo">YourPhone:</label>
-                    <input class="form-group" asp-for="ContactNo" />
+                    <label asp-for="Name">Name:</label>
+                    <input asp-for="Name" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Email">YourEmail:</label>
-                    <input class="form-group" asp-for="Email" />
+                    <label asp-for="ContactNo">Phone:</label>
+                    <input asp-for="ContactNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email:</label>
+                    <input asp-for="Email" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label> Will you attend?</label>
-                    <select class="form-group" asp-for="WillAttend">
+                    <select class="form-control" asp-for="WillAttend">
                         <option value="">Choose an option</option>
                         <option value="True">Yes I'll be there</option>
-                        <option value="False">No i can't come</option>
+                        <option value="False">No, I have changed my mind</option>
                     </select>
                 </div>
-                <div class="text-center">
-                    <button class="btn btn-primary" type="submit">
-                        Submit SignUpForm
-                    </button>
-                </div>
-
-
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
-
 </body>
 </html>
-

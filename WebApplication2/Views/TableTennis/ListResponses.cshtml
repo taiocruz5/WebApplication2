@@ -10,30 +10,32 @@
 </head>
 <body>
     <div class="panel-body">
-    <h2>Here are other people attending the event!</h2>
-    <table class="table table-sm table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>ContactNo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (PartyInvites.Models.TableTennisResponse r in Model)
-            {
+        <h2>Here are the other people attending this event!</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td>@r.Name</td>
-                    <td>@r.Email</td>
-                    <td>@r.ContactNo</td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>ContactNo</th>
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (PartyInvites.Models.TableTennisResponse r in Model)
+            {
+                    <tr>
+                        <td>@r.Name</td>
+                        <td>@r.Email</td>
+                        <td>@r.ContactNo</td>
+                    </tr>
 
-            }
+                }
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     </div>
-    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Home Page</a>
+    <div class="text-center">
+        <a class="btn btn-primary" href="@Url.Action("Index","Home")">Home Page</a>
+    </div>
 </body>
 </html>
 

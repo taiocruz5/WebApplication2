@@ -4,16 +4,17 @@
 namespace PartyInvites.Models {
     public static class BadmintonRepository
     {
-        private static List<GuestResponse> responses = new List<GuestResponse>();
 
-        public static IEnumerable<GuestResponse> Responses
+        private static List<BadmintonResponse> responses = new List<BadmintonResponse>();
+
+        public static IEnumerable<BadmintonResponse> Responses
         {
             get
             {
                 return responses;
             }
         }
-        public static void AddResponse(GuestResponse response)
+        public static void AddResponse(BadmintonResponse response)
         {
             responses.Add(response);
         }

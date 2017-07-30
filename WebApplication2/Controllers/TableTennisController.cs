@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication2.Models;
 using PartyInvites.Models;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace PartyInvites.Controllers
 {
-    public class PartyController : Controller
+    public class TableTennisController : Controller
     {
         public ViewResult Index()
         {
@@ -17,15 +18,16 @@ namespace PartyInvites.Controllers
             return View("MyView");
         }
         [HttpGet]
+        [Authorize]
         public ViewResult RSVPForm(){
             return View();
         }
         [HttpPost]
-        public ViewResult RSVPForm(GuestResponse guestresponse) {
+        public ViewResult RSVPForm(TableTennisResponse tabletennisreponse) {
             if (ModelState.IsValid)
             {
-                BadmintonRepository.AddResponse(guestresponse);
-                return View("Thanks", guestresponse);
+                TableTennisRepository.AddResponse(tabletennisreponse);
+                return View("Thanks",tabletennisreponse );
             }
             else
             {
@@ -36,7 +38,7 @@ namespace PartyInvites.Controllers
         }
         public ViewResult ListResponses()
         {
-            return View(BadmintonRepository.Responses.Where(r => r.WillAttend == true));
+            return View(TableTennisRepository.Responses.Where(r => r.WillAttend == true));
         }
 
         public IActionResult About()

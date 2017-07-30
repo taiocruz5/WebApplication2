@@ -16,8 +16,6 @@ namespace WebApplication2.Data
         { }
 
         public DbSet<Profile> Profiles { get; set; }
-
-        
         
     }
 }

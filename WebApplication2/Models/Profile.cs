@@ -31,9 +31,11 @@ namespace WebApplication2.Models
         [Display(Name = "Profile Picture")]
         public string ProfilePicture { get; set; }
 
+        [Display(Name = "Description - Enter your preferred sports here!")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public ApplicationUser User { get; set; }
+
     }
 }

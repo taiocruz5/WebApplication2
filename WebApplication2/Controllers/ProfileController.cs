@@ -49,11 +49,50 @@ namespace WebApplication2.Controllers
             return View(profile);
         }
 
+        //[HttpGet]
+        //public IActionResult Search()
+        //{
+        //    ProfileSearchViewModel vm = new ProfileSearchViewModel();
+        //    vm.DisplayName = "Hazim";
+
+        //    return View(vm);
+        //}
+
+        //[HttpGet]
+        //public IActionResult Search(ProfileSearchViewModel vm)
+        //{
+        //    List<ProfileSearchResultViewModel> result = new List<ProfileSearchResultViewModel>();
+        //    if (ModelState.IsValid)
+        //    {
+        //        result = (from p in _context.Profiles
+        //                  where p.DisplayName.Contains(vm.DisplayName.ToString())
+        //                  && p.Description.Contains(vm.Description.ToString())
+
+        //                  select new ProfileSearchResultViewModel
+        //                  {
+        //                      DisplayName = View((object)p.DisplayName),
+        //                      Description = RedirectToAction(p.Description),
+        //                      ProfilePicture = $"{p.Id}/{p.ProfilePicture}",
+        //                      Gender = p.Gender
+        //                  }
+        //                  ).ToList();
+                          
+                
+
+
+        //    }
+        //    return View("Result", result)
+        //}
+
         // GET: Profile/Edit/5
 
         public async Task<IActionResult> Edit()
         {
             ApplicationUser currentuser = await _userManager.GetUserAsync(User);
+            if (currentuser == null)
+            {
+                return View("Error");
+            }
             var profile = await _context.Profiles.SingleOrDefaultAsync(m => m.Id == currentuser.ProfileId);
             return View(profile);
         }
@@ -72,15 +111,11 @@ namespace WebApplication2.Controllers
                 if (ProfilePictureFile != null)
                 {
                     string uploadPath = Path.Combine(_environment.WebRootPath, "uploads");
-                    Directory.CreateDirectory(Path.Combine(uploadPath, currentuser.Id));
+                    Directory.CreateDirectory(Path.Combine(uploadPath, currentuser.ProfileId.ToString()));
 
-                    string filename = ProfilePictureFile.FileName;
-                    if (filename.Contains('\\'))
-                    {
-                        filename = filename.Split('\\').Last();
-                    }
+                    string filename = Path.GetFileName(ProfilePictureFile.FileName);
 
-                    using (FileStream fs = new FileStream(Path.Combine(uploadPath, currentuser.Id, filename), FileMode.Create))
+                    using (FileStream fs = new FileStream(Path.Combine(uploadPath, currentuser.ProfileId.ToString(), filename), FileMode.Create))
                     {
                         await ProfilePictureFile.CopyToAsync(fs);
                     }
@@ -107,7 +142,7 @@ namespace WebApplication2.Controllers
                 //throw;
                 //}
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Edit");
         }
 
     }

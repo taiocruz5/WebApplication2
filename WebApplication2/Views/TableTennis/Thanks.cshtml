@@ -1,0 +1,28 @@
+﻿@model PartyInvites.Models.TableTennisResponse
+@{ 
+    Layout = null;
+ }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body class="text-center">
+    <p>
+        <h1>Thank you @Model.Name!</h1>
+        @if (Model.WillAttend==true)
+        {
+            @:Its great you're coming!
+            }else
+        {
+            @:You are always welcome back if you have changed your mind! You may be interested to know..
+
+        }
+    </p>
+    <a class="btn btn-primary" href="@Url.Action("ListResponses","Tabletennis")">Who's Coming</a>
+    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Home Page</a>
+</body>
+</html>
+

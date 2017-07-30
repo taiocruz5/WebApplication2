@@ -1,17 +1,17 @@
-﻿@model PartyInvites.Models.GuestResponse
+﻿@model PartyInvites.Models.VolleyBallResponse
 @{ Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>RSVPForm</title>
+    <title>Volleyball</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>RSVP</h4></div>
+        <div class="panel-heading text-center"><h4>Volleyball</h4></div>
         <div class="panel-body">
             <form class="p-a-1" asp-action="RSVPForm" method="post">
                 <div asp-validation-summary="All"></div>
@@ -33,12 +33,12 @@
                     <select class="form-group" asp-for="WillAttend">
                         <option value="">Choose an option</option>
                         <option value="True">Yes I'll be there</option>
-                        <option value="False">No i can't come</option>
+                        <option value="False">No i have changed my mind</option>
                     </select>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary" type="submit">
-                        Submit RSVP
+                        Submit SignUpForm
                     </button>
                 </div>
 

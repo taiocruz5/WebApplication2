@@ -41,6 +41,13 @@ textarea {
     width: 100%;
 }
 
+.img-responsive{
+    max-height: 1024px;
+    max-width: 576px;
+    height:auto;
+    width:auto;
+}
+
 .profileFormat {
     display:block;
     max-width:200px;

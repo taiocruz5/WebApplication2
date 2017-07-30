@@ -89,6 +89,10 @@ namespace WebApplication2.Controllers
         public async Task<IActionResult> Edit()
         {
             ApplicationUser currentuser = await _userManager.GetUserAsync(User);
+            if (currentuser == null)
+            {
+                return View("Error");
+            }
             var profile = await _context.Profiles.SingleOrDefaultAsync(m => m.Id == currentuser.ProfileId);
             return View(profile);
         }

@@ -6,6 +6,7 @@ using WebApplication2.Models.Identity;
 using WebApplication2.Data;
 using Microsoft.EntityFrameworkCore;
 using PartyInvites.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Events.Controllers
 {
@@ -28,15 +29,13 @@ namespace Events.Controllers
         }
 
         [HttpGet]
-        public async Task<ViewResult> RSVPFormAsync()
+        [Authorize]
+        public ViewResult RSVPForm()
         {
-            ApplicationUser currentuser = await _userManager.GetUserAsync(User);
-            if (currentuser == null)
-            {
-                return View("Error");
-            }
-            return View("RSVPForm");
+            return View();
         }
+
+
         [HttpPost]
         public ViewResult RSVPForm(PartyInvites.Models.GuestResponse guestresponse) {
             if (ModelState.IsValid)

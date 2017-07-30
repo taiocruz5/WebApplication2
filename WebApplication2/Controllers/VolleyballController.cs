@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PartyInvites.Models;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace PartyInvites.Controllers
 {
@@ -17,6 +17,7 @@ namespace PartyInvites.Controllers
             return View("MyView");
         }
         [HttpGet]
+        [Authorize]
         public ViewResult RSVPForm(){
             return View();
         }

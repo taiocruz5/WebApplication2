@@ -12,14 +12,15 @@ namespace PartyInvites.Controllers
     {
         public ViewResult Index()
         {
-            int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
             return View("MyView");
         }
+
         [HttpGet]
-        public ViewResult RSVPForm(){
+        public ViewResult RSVPForm()
+        {
             return View();
         }
+
         [HttpPost]
         public ViewResult RSVPForm(TableTennisResponse tabletennisreponse) {
             if (ModelState.IsValid)
@@ -38,21 +39,6 @@ namespace PartyInvites.Controllers
         {
             return View(TableTennisRepository.Responses.Where(r => r.WillAttend == true));
         }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
         public IActionResult Error()
         {
             return View();

@@ -31,13 +31,19 @@ namespace Events.Controllers
         public async Task<ViewResult> RSVPFormAsync()
         {
             ApplicationUser currentuser = await _userManager.GetUserAsync(User);
-            if (currentuser == null)
+            if (currentuser != null)
+            {
+                return View("RSVPForm");
+            }
+            else
             {
                 return View("Error");
             }
-            return View("RSVPForm");
+           
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ViewResult RSVPForm(PartyInvites.Models.GuestResponse guestresponse) {
             if (ModelState.IsValid)
             {

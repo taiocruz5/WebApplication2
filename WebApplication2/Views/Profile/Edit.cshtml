@@ -1,14 +1,15 @@
 @model WebApplication2.Models.Profile
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "My Profile";
 }
 
-<h2>Edit</h2>
+<h2>My Profile</h2>
+<h5>Here is how your profile page looks like.</h5>
+<h5>Remember to hit save if you have made any changes.</h5>
 
 <form asp-action="Edit" enctype="multipart/form-data">
     <div class="form-horizontal">
-        <h4>Profile</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
@@ -62,9 +63,8 @@
     </div>
 </form>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

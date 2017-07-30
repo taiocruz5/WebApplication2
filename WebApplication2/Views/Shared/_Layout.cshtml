@@ -43,8 +43,7 @@
 
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <li><a href="@Url.Action("Profile","Home")">My Profile</a></li>
-                        <li><a href="@Url.Action("Edit","Profile")">Edit Profile</a></li>
+                        <li><a href="@Url.Action("Edit","Profile")">My Profile</a></li>
                     }
 
                 </ul>
